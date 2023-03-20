@@ -10,6 +10,32 @@
       rel="stylesheet"
       href="./../node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="./index.css" />
   </head>
-  <body></body>
+  <body>
+    <div id="root" class="m-3">
+      <div class="mb-5">
+        <div class="row m-0 cont-state-button">
+          <div class="col d-flex align-items-center text-bg-info me-3">
+            <p class="m-0 state">State</p>
+          </div>
+          <button type="submit" class="col-auto btn btn-primary">Jugar</button>
+        </div>
+        <div
+          class="d-grid align-content-center rounded-pill mt-3 text-bg-success p-3 rounds"
+        >
+          Rondas: <span></span>
+        </div>
+      </div>
+
+      <div class="cont-grid container-fluid p-0">
+        <div class="grid row row-cols-2 m-0">
+          <div class="col red"></div>
+          <div class="col green"></div>
+          <div class="col yellow"></div>
+          <div class="col blue"></div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
