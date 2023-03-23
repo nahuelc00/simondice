@@ -20,15 +20,15 @@
   height: 400px;
 }
 
-.red {
+#red {
   background-color: red;
 }
-.blue {
+#blue {
   background-color: blue;
 }
-.green {
+#green {
   background-color: green;
 }
-.yellow {
+#yellow {
   background-color: yellow;
 }
