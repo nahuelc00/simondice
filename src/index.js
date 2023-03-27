@@ -43,7 +43,7 @@ function handlerCpuTurn() {
     activateInputOfSquares();
     userHistory = [];
     updateState("Tu turno");
-  }, (cpuHistory.length + 1) * 700);
+  }, (cpuHistory.length + 1) * 1000);
 }
 
 function handlerUserTurn() {
