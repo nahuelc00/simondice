@@ -8,18 +8,19 @@ function initGame() {
     updateState("Turno de la máquina");
     handlerCpuTurn();
     handlerUserTurn();
+    $play.setAttribute("disabled", "");
   });
 }
 
 function reset() {
   const $reset = document.querySelector(".reset");
-  $reset.addEventListener("click", (e) => {
+  $reset.addEventListener("click", () => {
     location.reload();
   });
 }
 
 function handlerCpuTurn() {
-  desactivateInput();
+  desactivateInputOfSquares();
   renderRounds();
   const numRandom = getRandomNumber();
   const $squares = document.querySelectorAll(".square");
@@ -39,7 +40,7 @@ function handlerCpuTurn() {
   }
 
   setTimeout(() => {
-    activateInput();
+    activateInputOfSquares();
     userHistory = [];
     updateState("Tu turno");
   }, (cpuHistory.length + 1) * 700);
@@ -64,7 +65,7 @@ function handlerUserTurn() {
         stateEl = "No es el mismo elemento";
         updateState("Perdiste");
         document.querySelector(".reset").removeAttribute("disabled");
-        desactivateInput();
+        desactivateInputOfSquares();
         break;
       }
     }
@@ -79,14 +80,12 @@ function handlerUserTurn() {
   });
 }
 
-function activateInput() {
+function activateInputOfSquares() {
   document.querySelector(".grid").style = "";
-  document.querySelector(".btn").style = "";
 }
 
-function desactivateInput() {
+function desactivateInputOfSquares() {
   document.querySelector(".grid").style = "pointer-events:none;";
-  document.querySelector(".btn").style = "pointer-events:none;";
 }
 
 function getRandomNumber() {
