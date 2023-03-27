@@ -2,7 +2,7 @@
   "name": "simondice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/nahuelc00/simondice/issues"
   },
-  "homepage": "https://github.com/nahuelc00/simondice",
+  "homepage": "",
   "dependencies": {
     "bootstrap": "^5.2.3"
   }
