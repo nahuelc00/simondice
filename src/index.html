@@ -14,9 +14,11 @@
   </head>
   <body>
     <div id="root" class="m-3">
-      <div class="mb-5">
+      <div class="mb-3">
         <div class="row m-0 cont-state-button">
-          <div class="col d-flex align-items-center text-bg-info me-3">
+          <div
+            class="rounded-pill col d-flex align-items-center text-bg-info me-3"
+          >
             <p class="m-0 state"></p>
           </div>
           <button type="submit" class="col-auto btn btn-primary">Jugar</button>
@@ -27,6 +29,8 @@
           <p class="m-0">Ronda: <span class="rounds"></span></p>
         </div>
       </div>
+
+      <button disabled class="btn btn-secondary mb-5 reset">Reset</button>
 
       <div class="cont-grid container-fluid p-0">
         <div class="grid row row-cols-2 m-0">

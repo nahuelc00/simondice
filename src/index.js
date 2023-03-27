@@ -7,12 +7,20 @@ function initGame() {
   $play.addEventListener("click", () => {
     updateState("Turno de la máquina");
     handlerCpuTurn();
-    listenSquareClick();
+    handlerUserTurn();
+  });
+}
+
+function reset() {
+  const $reset = document.querySelector(".reset");
+  $reset.addEventListener("click", (e) => {
+    location.reload();
   });
 }
 
 function handlerCpuTurn() {
   desactivateInput();
+  renderRounds();
   const numRandom = getRandomNumber();
   const $squares = document.querySelectorAll(".square");
   const squareHighlight = $squares[numRandom];
@@ -32,26 +40,53 @@ function handlerCpuTurn() {
 
   setTimeout(() => {
     activateInput();
+    userHistory = [];
     updateState("Tu turno");
-  }, (cpuHistory.length + 1) * 500);
+  }, (cpuHistory.length + 1) * 700);
 }
 
-function listenSquareClick() {
+function handlerUserTurn() {
   const $squaresCont = document.querySelector(".grid");
 
   $squaresCont.addEventListener("click", (e) => {
     const $square = e.target;
+    let stateEl = "";
     highlightSquare($square);
-    cpuHistory.forEach((element) => {});
+    userHistory.push($square);
+
+    for (let index = 0; index < userHistory.length; index++) {
+      const $userSquare = userHistory[index];
+      const $cpuSquare = cpuHistory[index];
+
+      if ($userSquare.id === $cpuSquare.id) {
+        stateEl = "Es el mismo elemento";
+      } else {
+        stateEl = "No es el mismo elemento";
+        updateState("Perdiste");
+        document.querySelector(".reset").removeAttribute("disabled");
+        desactivateInput();
+        break;
+      }
+    }
+
+    if (
+      stateEl === "Es el mismo elemento" &&
+      userHistory.length === cpuHistory.length
+    ) {
+      updateState("Turno de la máquina");
+      handlerCpuTurn();
+    }
   });
 }
 
 function activateInput() {
-  document.querySelector("body").style = "";
+  document.querySelector(".grid").style = "";
+  document.querySelector(".btn").style = "";
 }
 
 function desactivateInput() {
-  document.querySelector("body").style = "pointer-events:none;";
+  document.querySelector(".grid").style = "pointer-events:none;";
+  document.querySelector(".btn").style = "pointer-events:none;";
 }
 
 function getRandomNumber() {
@@ -81,4 +116,5 @@ function renderRounds() {
 
 (function main() {
   initGame();
+  reset();
 })();
