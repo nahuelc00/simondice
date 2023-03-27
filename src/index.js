@@ -114,6 +114,7 @@ function renderRounds() {
 }
 
 (function main() {
+  history.pushState(null, "", "/simondice/src");
   initGame();
   reset();
 })();
