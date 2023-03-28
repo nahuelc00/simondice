@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/nahuelc00/simondice/issues"
   },
-  "homepage": "https://github.com/nahuelc00/simondice/src",
+  "homepage": "",
   "dependencies": {
     "bootstrap": "^5.2.3"
   }
